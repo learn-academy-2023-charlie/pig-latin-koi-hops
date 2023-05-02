@@ -47,26 +47,38 @@ const App = () => {
     // Output: words that start with vowels, with way attached to the end
     // Process: create a function that checks if the first letter is a vowel and adds "way" and using .join to put it back together into one word
 
-      const vowelsFirst = () => {
-        if (vowelsArray.includes(eachWord[0])){
-          return eachWord + "way"
+    const vowelsFirst = () => {
+      if (vowelsArray.includes(eachWord[0])){
+        return eachWord + "way"
+      } else {
+        return eachWord
+      }
+    }
+    
+    const pigLatinizedWords = vowelsFirst()
+      
+
+      // Input: a string
+      // Output: that word, pig latinized, pushed into translated word
+      // Process: 
+
+      const quChecker = () => {
+        if (eachWord.indexOf("qu") === 0){
+          return eachWord.substring(2) + "quay"
+        } else if (eachWord.indexOf("qu") === 1 
+          || eachWord.charAt[0] === "s"){
+          return eachWord.substring(eachWord.indexOf("qu")+2) + eachWord.slice(0, eachWord.indexOf("qu")) + "quay"
         } else {
           return eachWord
         }
-
-          // if(vowelsArray.includes(char[0]))
-          // return eachWord.join("") + "way"
       }
       
-      const translatedWord = vowelsFirst()
-      console.log("translatedWord:", translatedWord)
-
-      return translatedWord
-
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
+  
+    return quChecker()
+
+    
     })
-
-
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
     const translatedWords = translatedWordsArray.join(" ")
     console.log("translatedWords:", translatedWords)
