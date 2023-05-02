@@ -65,16 +65,18 @@ const App = () => {
       const quChecker = () => {
         if (eachWord.indexOf("qu") === 0){
           return eachWord.substring(2) + "quay"
-        } else if (eachWord.indexOf("qu") > 0 && eachWord.indexOf("qu") < eachWord.indexOf("a" && "e" && "i" && "o" && "u")){
+        } else if (eachWord.indexOf("qu") === 1 
+          || eachWord.charAt[0] === "s"){
           return eachWord.substring(eachWord.indexOf("qu")+2) + eachWord.slice(0, eachWord.indexOf("qu")) + "quay"
         } else {
-          return pigLatinizedWords
+          return eachWord
         }
       }
       
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
   
     return quChecker()
+
     
     })
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
