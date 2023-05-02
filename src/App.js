@@ -2,6 +2,23 @@ import React, { useState } from 'react'
 import './App.css'
 import butcherPigImage from './assets/butcherPig.jpeg'
 
+// Cherry and Vance - KoiHops!
+
+//Initial Approach - 
+  // - talk through code to understand it
+  // - functions in functions in functions
+
+//Hardest thing - 
+  // - formatting effectively
+  // - knowing how our code was working with the code that was already present
+  // - troubleshooting effectively
+  
+//Workflow
+  // - breaks, persepective
+
+
+
+
 const App = () => {
 
   // ACTION ITEM: to make the development process easier there are some preassigned words in the input field, when you are ready for your full user experience delete the test words passed to useState and pass an empty string
@@ -14,71 +31,36 @@ const App = () => {
     // NO MODIFICATION NEEDED: the variable "arrayOfUserInput" will contain the text input from the user split into an array of words
     const arrayOfUserInput = userInput.split(" ")
     console.log("arrayOfUserInput:", arrayOfUserInput)
-    //takes user input and splits a string into an array of individual words: 
-    //['apple', 'through', 'queen', 'squeal', 'fry', 'fluent']
-
     // NO MODIFICATION NEEDED: now that we have an array of words, we can map over the array and look at each word
     const translatedWordsArray = arrayOfUserInput.map(eachWord => {
       console.log("eachWord:", eachWord)
-      //maps the arrayOfUserInput so we can iterate through one word at a time - first gives us apple, then through, then queen, etc. as an individual string
-
       // NO MODIFICATION NEEDED: this code will look at each word and identify the vowels
       const vowelsArray = eachWord.split("").filter(vowel => {
-        //splits individual word string into individual word array and logs the values from the
-        return (
-          vowel === "a" || 
-          vowel === "e" || 
-          vowel === "i" || 
-          vowel === "o" || 
-          vowel === "u"
-        )
+        return (vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u")
       })
       console.log("vowelsArray:", vowelsArray)
-      //takes the currently mapped word and returns an array of its vowels:
-      //for apple, 
 
       // ACTION ITEM: your Pig Latin logic goes here!
-
-    // Can type any word that begins with a vowel in the text input (e.g. apple)
-    // Can hit the submit button
-    // Can see the words that begin with a vowel translated to Pig Latin and rendered to the page (e.g. appleway)
-
     // Input: eachWord and vowelsArray variables
     // Output: words that start with vowels, with way attached to the end
     // Process: create a function that checks if the first letter is a vowel and adds "way" and using .join to put it back together into one word
-
-    const vowelsFirst = () => {
       if (vowelsArray.includes(eachWord[0])){
         return eachWord + "way"
-      } else {
+      }
+      else if (eachWord.indexOf("qu") === 0){
+        return eachWord.substring(2) + "quay"
+      } else if (eachWord.indexOf("qu") === 1 
+        || eachWord.charAt[0] === "s"){
+        return eachWord.substring(eachWord.indexOf("qu")+2) + eachWord.slice(0, eachWord.indexOf("qu")) + "quay"
+      } else if (eachWord.includes("y") && !eachWord.includes("a" || "e" || "i" || "o"|| "u")){
+         return eachWord.slice(eachWord.indexOf("y")) + eachWord.slice(0, (eachWord.indexOf("y"))) + "ay"
+       } else {
         return eachWord
-      }
-    }
-    
-    const pigLatinizedWords = vowelsFirst()
-      
-
-      // Input: a string
-      // Output: that word, pig latinized, pushed into translated word
-      // Process: 
-
-      const quChecker = () => {
-        if (eachWord.indexOf("qu") === 0){
-          return eachWord.substring(2) + "quay"
-        } else if (eachWord.indexOf("qu") === 1 
-          || eachWord.charAt[0] === "s"){
-          return eachWord.substring(eachWord.indexOf("qu")+2) + eachWord.slice(0, eachWord.indexOf("qu")) + "quay"
-        } else {
-          return eachWord
-        }
-      }
-      
+      }     
+          
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
-  
-    return quChecker()
+    }) 
 
-    
-    })
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
     const translatedWords = translatedWordsArray.join(" ")
     console.log("translatedWords:", translatedWords)
