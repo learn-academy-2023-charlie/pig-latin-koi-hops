@@ -33,7 +33,24 @@ const App = () => {
 
       // ACTION ITEM: your Pig Latin logic goes here!
 
-    
+    // Can type any word that begins with a vowel in the text input (e.g. apple)
+    // Can hit the submit button
+    // Can see the words that begin with a vowel translated to Pig Latin and rendered to the page (e.g. appleway)
+
+    // Input: eachWord and vowelsArray variables
+    // Output: words that start with vowels, with way attached to the end
+    // Process: create a function that checks if the first letter is a vowel and adds "way" and using .join to put it back together into one word
+
+      const vowelsFirst = (vowelsArray) => {
+        return eachWord.split("").filter((char, index, array) => {
+          if(vowelsArray.includes(char[0]))
+          return eachWord.join("") + "way"
+        })
+      }
+      
+
+      console.log("vowelsFirst:", vowelsFirst)
+
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
@@ -88,7 +105,7 @@ const App = () => {
         </div>
         <p>{inputTranslated}</p>
       </div>
-      <footer>&copy; 2022 | Coded by: Your Names Here!</footer>
+      <footer>&copy; Charlie 2023 | Coded by: Vance and Cherry</footer>
     </div>
   )
 }
