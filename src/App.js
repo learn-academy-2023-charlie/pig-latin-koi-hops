@@ -14,13 +14,17 @@ const App = () => {
     // NO MODIFICATION NEEDED: the variable "arrayOfUserInput" will contain the text input from the user split into an array of words
     const arrayOfUserInput = userInput.split(" ")
     console.log("arrayOfUserInput:", arrayOfUserInput)
+    //takes user input and splits a string into an array of individual words: 
+    //['apple', 'through', 'queen', 'squeal', 'fry', 'fluent']
 
     // NO MODIFICATION NEEDED: now that we have an array of words, we can map over the array and look at each word
     const translatedWordsArray = arrayOfUserInput.map(eachWord => {
       console.log("eachWord:", eachWord)
+      //maps the arrayOfUserInput so we can iterate through one word at a time - first gives us apple, then through, then queen, etc. as an individual string
 
       // NO MODIFICATION NEEDED: this code will look at each word and identify the vowels
       const vowelsArray = eachWord.split("").filter(vowel => {
+        //splits individual word string into individual word array and logs the values from the
         return (
           vowel === "a" || 
           vowel === "e" || 
@@ -30,6 +34,8 @@ const App = () => {
         )
       })
       console.log("vowelsArray:", vowelsArray)
+      //takes the currently mapped word and returns an array of its vowels:
+      //for apple, 
 
       // ACTION ITEM: your Pig Latin logic goes here!
 
@@ -41,20 +47,25 @@ const App = () => {
     // Output: words that start with vowels, with way attached to the end
     // Process: create a function that checks if the first letter is a vowel and adds "way" and using .join to put it back together into one word
 
-      const vowelsFirst = (vowelsArray) => {
-        return eachWord.split("").filter((char, index, array) => {
-          if(vowelsArray.includes(char[0]))
-          return eachWord.join("") + "way"
-        })
+      const vowelsFirst = () => {
+        if (vowelsArray.includes(eachWord[0])){
+          return eachWord + "way"
+        } else {
+          return eachWord
+        }
+
+          // if(vowelsArray.includes(char[0]))
+          // return eachWord.join("") + "way"
       }
       
+      const translatedWord = vowelsFirst()
+      console.log("translatedWord:", translatedWord)
 
-      console.log("vowelsFirst:", vowelsFirst)
-
+      return translatedWord
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
-      return eachWord
     })
+
 
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
     const translatedWords = translatedWordsArray.join(" ")
