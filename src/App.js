@@ -96,14 +96,13 @@ const App = () => {
     <div className="page-container">
       <div className="body-container">
         <h1>Pig Latin Translator</h1>
-        <img
-          src={butcherPigImage}
-          alt="pig with butcher cut names in pig latin"
-          className="butcher-pig-image"
-        />
+        <i>
+ <img src="https://64.media.tumblr.com/30f04aaf750f45e560a01d9f7fd75a4a/tumblr_pziidtzGyc1vala9ro1_400.gifv" alt="oink oink" width={ 250 }></img></i>
+ 
+
 
         <div className="input-section">
-          <h4>Enter phrase to be translated:</h4>
+          {/* <h4>Enter phrase to be translated:</h4> */}
           <input
             type="text"
             className="user-input"
@@ -111,8 +110,10 @@ const App = () => {
             value={userInput}
           />
           <br />
+          <div className="body-button">
           <button onClick={setUpPreventDefault}>Submit</button>
           <button onClick={restartGame}>Clear</button>
+          </div>
         </div>
         <p>{inputTranslated}</p>
       </div>
